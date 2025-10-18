@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庆祝[朋友名字]成年快乐！</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fef9f3;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .birthday-icon {
+            font-size: 4rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* 照片墙样式 */
+        .photo-wall {
+            background-color: #fff9f0;
+            position: relative;
+        }
+        
+        .photo-wall::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23f0e6d6" stroke-width="1"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .polaroid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: rotate(calc(var(--rotation) * 1deg));
+            transition: transform 0.3s ease;
+            width: 250px;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0) scale(1.05);
+            z-index: 10;
+        }
+        
+        .polaroid-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .polaroid-caption {
+            margin-top: 15px;
+            font-style: italic;
+            text-align: center;
+            color: #666;
+        }
+        
+        /* 留言区样式 */
+        .wishes-section {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        }
+        
+        .wishes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .wish-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: #a1c4fd;
+            outline: none;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
+            width: 100%;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .wishes-display {
+            flex: 1;
+            min-width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .wish-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .wish-author {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ff9a9e;
+        }
+        
+        /* 小说角色祝福区 */
+        .characters-section {
+            background-color: #f5f0e8;
+            position: relative;
+        }
+        
+        .characters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .character-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 300px;
+            transition: transform 0.3s;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .character-header {
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+        
+        .character-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .character-from {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .character-body {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .character-body::before {
+            content: """;
+            font-size: 4rem;
+            color: #f0f0f0;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: Georgia, serif;
+        }
+        
+        .character-quote {
+            font-style: italic;
+            line-height: 1.6;
+            color: #555;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ff9a9e;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+            
+            .polaroid {
+                width: 200px;
+                height: 230px;
+            }
+            
+            .polaroid-img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部欢迎区 -->
+    <header>
+        <div class="container header-content">
+            <h1>庆祝<span id="friend-name">小芳</span>成年快乐！</h1>
+            <p>今天是你人生中重要的里程碑，愿你的未来如星辰般璀璨！</p>
+            <div class="birthday-icon">
+                <i class="fas fa-birthday-cake"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 拍立得照片墙 -->
+    <section class="photo-wall">
+        <div class="container">
+            <h2>美好回忆瞬间</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 20px;">用拍立得记录下的珍贵时刻</p>
+            
+            <div class="polaroid-container">
+                <div class="polaroid" style="--rotation: -3;">
+                    <div class="polaroid-img">童年照片</div>
+                    <div class="polaroid-caption">天真烂漫的童年</div>
+                </div>
+                <div class="polaroid" style="--rotation: 2;">
+                    <div class="polaroid-img">学校时光</div>
+                    <div class="polaroid-caption">美好的校园回忆</div>
+                </div>
+                <div class="polaroid" style="--rotation: -1;">
+                    <div class="polaroid-img">朋友聚会</div>
+                    <div class="polaroid-caption">欢乐的相聚时刻</div>
+                </div>
+                <div class="polaroid" style="--rotation: 4;">
+                    <div class="polaroid-img">特别时刻</div>
+                    <div class="polaroid-caption">值得铭记的瞬间</div>
+                </div>
+                <div class="polaroid" style="--rotation: -2;">
+                    <div class="polaroid-img">旅行记忆</div>
+                    <div class="polaroid-caption">一起看过的风景</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 互动留言区 -->
+    <section class="wishes-section">
+        <div class="container">
+            <h2>送上你的祝福</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 20px;">留下你对小芳的祝福和鼓励</p>
+            
+            <div class="wishes-container">
+                <div class="wish-form">
+                    <div class="form-group">
+                        <label for="name">你的名字</label>
+                        <input type="text" id="name" placeholder="请输入你的名字">
+                    </div>
+                    <div class="form-group">
+                        <label for="wish">祝福语</label>
+                        <textarea id="wish" rows="5" placeholder="写下你的祝福..."></textarea>
+                    </div>
+                    <button id="submit-wish">提交祝福</button>
+                </div>
+                
+                <div class="wishes-display" id="wishes-container">
+                    <!-- 这里会动态显示祝福 -->
+                    <div class="wish-card">
+                        <div class="wish-author">小明</div>
+                        <div class="wish-text">成年快乐！愿你的未来充满无限可能！</div>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-author">小红</div>
+                        <div class="wish-text">恭喜成年！希望你的每一天都充满阳光和欢笑！</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 小说角色祝福区 -->
+    <section class="characters-section">
+        <div class="container">
+            <h2>小说角色的祝福</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 20px;">来自你喜爱的小说世界的特别问候</p>
+            
+            <div class="characters-container">
+                <div class="character-card">
+                    <div class="character-header">
+                        <div class="character-name">Elizabeth Bennet</div>
+                        <div class="character-from">《傲慢与偏见》</div>
+                    </div>
+                    <div class="character-body">
+                        <p class="character-quote">亲爱的朋友，成年意味着新的开始和无限可能。愿你的智慧和勇气指引你走向精彩的人生旅程，就像我追寻真爱与独立一样坚定。</p>
+                    </div>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-header">
+                        <div class="character-name">Atticus Finch</div>
+                        <div class="character-from">《杀死一只知更鸟》</div>
+                    </div>
+                    <div class="character-body">
+                        <p class="character-quote">成年不仅意味着年龄的增长，更意味着责任与担当。愿你始终保持正直和勇气，像站在光明中的人一样，照亮自己和他人的道路。</p>
+                    </div>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-header">
+                        <div class="character-name">Hermione Granger</div>
+                        <div class="character-from">《哈利·波特》</div>
+                    </div>
+                    <div class="character-body">
+                        <p class="character-quote">祝贺你踏入成年世界！记住，知识是最强大的魔法，勇气是最珍贵的品质。愿你的未来像霍格沃茨的星空一样璀璨迷人！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>为<span id="footer-friend-name">小芳</span>特别制作的成年庆祝网站 | 2023年</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-qq"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 祝福提交功能
+        document.getElementById('submit-wish').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const wish = document.getElementById('wish').value;
+            
+            if (!name || !wish) {
+                alert('请填写完整信息！');
+                return;
+            }
+            
+            const wishesContainer = document.getElementById('wishes-container');
+            const newWish = document.createElement('div');
+            newWish.className = 'wish-card';
+            newWish.innerHTML = `
+                <div class="wish-author">${name}</div>
+                <div class="wish-text">${wish}</div>
+            `;
+            
+            wishesContainer.prepend(newWish);
+            
+            // 清空表单
+            document.getElementById('name').value = '';
+            document.getElementById('wish').value = '';
+            
+            alert('祝福提交成功！');
+        });
+        
+        // 动态更新朋友名字
+        function updateFriendName() {
+            const friendName = prompt("请输入你朋友的名字：", "小芳");
+            if (friendName) {
+                document.getElementById('friend-name').textContent = friendName;
+                document.getElementById('footer-friend-name').textContent = friendName;
+            }
+        }
+        
+        // 页面加载时询问朋友名字
+        window.addEventListener('load', updateFriendName);
+        
+        // 为拍立得照片添加点击效果
+        document.querySelectorAll('.polaroid').forEach(polaroid => {
+            polaroid.addEventListener('click', function() {
+                this.style.transform = 'rotate(0deg) scale(1.1)';
+                setTimeout(() => {
+                    this.style.transform = `rotate(${this.style.getPropertyValue('--rotation')}deg)`;
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
