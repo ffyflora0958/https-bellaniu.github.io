@@ -14,18 +14,17 @@
         }
         
         :root {
-            --dopamine-pink: #FF6B8B;
-            --dopamine-orange: #FF9A3D;
-            --dopamine-yellow: #FFD166;
-            --dopamine-green: #06D6A0;
-            --dopamine-blue: #118AB2;
-            --dopamine-purple: #9B5DE5;
-            --dopamine-cyan: #00BBF9;
+            --pastel-blue: #B8E0F6;
+            --pastel-pink: #F9D1D1;
+            --pastel-green: #D4F0C9;
+            --pastel-yellow: #FDF5BF;
+            --pastel-purple: #D8C3F2;
+            --text-color: #5A5A5A;
         }
         
         body {
-            background: linear-gradient(135deg, #FF6B8B, #9B5DE5, #00BBF9);
-            color: #333;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-pink));
+            color: var(--text-color);
             line-height: 1.6;
             font-family: 'Indie Flower', cursive;
             min-height: 100vh;
@@ -51,15 +50,15 @@
         .section-subtitle {
             text-align: center;
             margin-bottom: 40px;
-            color: white;
+            color: var(--text-color);
             font-size: 1.2rem;
         }
         
         /* 头部样式 */
         header {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            color: white;
+            color: var(--text-color);
             text-align: center;
             padding: 120px 0;
             position: relative;
@@ -74,8 +73,7 @@
         header h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            color: white;
+            color: var(--text-color);
         }
         
         header p {
@@ -95,7 +93,8 @@
             font-size: 4rem;
             animation: bounce 2s infinite;
             margin-top: 20px;
-            color: var(--dopamine-yellow);
+            color: var(--pastel-yellow);
+            text-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         
         @keyframes bounce {
@@ -105,12 +104,12 @@
         
         /* 照片墙样式 */
         .photo-wall {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 20px;
             margin: 40px auto;
             padding: 40px;
             max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .upload-section {
@@ -118,33 +117,35 @@
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 2px dashed var(--pastel-blue);
         }
         
         .upload-area {
-            border: 3px dashed var(--dopamine-cyan);
+            border: 3px dashed var(--pastel-green);
             border-radius: 10px;
             padding: 40px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
             margin-bottom: 20px;
+            background: rgba(212, 240, 201, 0.2);
         }
         
         .upload-area:hover {
-            background: rgba(0, 187, 249, 0.1);
+            background: rgba(212, 240, 201, 0.4);
             transform: scale(1.02);
         }
         
         .upload-area i {
             font-size: 3rem;
-            color: var(--dopamine-cyan);
+            color: var(--pastel-green);
             margin-bottom: 15px;
         }
         
         .upload-btn {
-            background: linear-gradient(135deg, var(--dopamine-pink), var(--dopamine-purple));
-            color: white;
+            background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+            color: var(--text-color);
             border: none;
             padding: 12px 25px;
             border-radius: 50px;
@@ -159,7 +160,7 @@
         
         .upload-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(155, 93, 229, 0.3);
+            box-shadow: 0 10px 20px rgba(216, 195, 242, 0.3);
         }
         
         .photo-grid {
@@ -176,6 +177,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             aspect-ratio: 1;
+            background: white;
         }
         
         .photo-item:hover {
@@ -195,8 +197,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.7);
-            color: white;
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-color);
             padding: 10px;
             text-align: center;
             font-size: 0.9rem;
@@ -216,16 +218,17 @@
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
+            color: var(--text-color);
         }
         
         /* 留言区样式 */
         .wishes-section {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 20px;
             margin: 40px auto;
             padding: 40px;
             max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .wishes-container {
@@ -242,7 +245,8 @@
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--pastel-blue);
         }
         
         .form-group {
@@ -253,27 +257,28 @@
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: var(--dopamine-purple);
+            color: var(--pastel-purple);
         }
         
         input, textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid var(--dopamine-cyan);
+            border: 2px solid var(--pastel-blue);
             border-radius: 10px;
             font-size: 1rem;
             transition: border 0.3s;
             font-family: 'Indie Flower', cursive;
+            background: rgba(255, 255, 255, 0.8);
         }
         
         input:focus, textarea:focus {
-            border-color: var(--dopamine-pink);
+            border-color: var(--pastel-pink);
             outline: none;
         }
         
         button {
-            background: linear-gradient(135deg, var(--dopamine-pink), var(--dopamine-purple));
-            color: white;
+            background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+            color: var(--text-color);
             border: none;
             padding: 12px 25px;
             border-radius: 50px;
@@ -304,9 +309,9 @@
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             animation: fadeIn 0.5s ease;
-            border-left: 5px solid var(--dopamine-green);
+            border-left: 5px solid var(--pastel-green);
         }
         
         @keyframes fadeIn {
@@ -317,17 +322,71 @@
         .wish-author {
             font-weight: bold;
             margin-bottom: 5px;
-            color: var(--dopamine-pink);
+            color: var(--pastel-pink);
         }
         
         /* 小说角色祝福区 */
         .characters-section {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 20px;
             margin: 40px auto;
             padding: 40px;
             max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mountain-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--pastel-blue), transparent);
+            z-index: 0;
+        }
+        
+        .mountain {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 150px solid var(--pastel-green);
+            opacity: 0.7;
+        }
+        
+        .mountain-1 {
+            left: 10%;
+            border-bottom-color: var(--pastel-blue);
+        }
+        
+        .mountain-2 {
+            left: 30%;
+            border-bottom-color: var(--pastel-green);
+        }
+        
+        .mountain-3 {
+            left: 50%;
+            border-bottom-color: var(--pastel-blue);
+        }
+        
+        .mountain-4 {
+            left: 70%;
+            border-bottom-color: var(--pastel-green);
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23B8E0F6'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23B8E0F6'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23B8E0F6'/%3E%3C/svg%3E");
+            background-size: cover;
+            z-index: 1;
         }
         
         .characters-container {
@@ -336,6 +395,8 @@
             justify-content: center;
             gap: 30px;
             margin-top: 40px;
+            position: relative;
+            z-index: 2;
         }
         
         .character-card {
@@ -345,7 +406,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             width: 300px;
             transition: transform 0.3s;
-            border-top: 5px solid var(--dopamine-orange);
+            border-top: 5px solid var(--pastel-yellow);
         }
         
         .character-card:hover {
@@ -355,8 +416,8 @@
         .character-header {
             padding: 20px;
             text-align: center;
-            background: linear-gradient(135deg, var(--dopamine-blue), var(--dopamine-cyan));
-            color: white;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+            color: var(--text-color);
         }
         
         .character-name {
@@ -379,7 +440,7 @@
         .character-body::before {
             content: """;
             font-size: 4rem;
-            color: rgba(0, 187, 249, 0.1);
+            color: rgba(184, 224, 246, 0.3);
             position: absolute;
             top: -10px;
             left: 10px;
@@ -389,15 +450,15 @@
         .character-quote {
             font-style: italic;
             line-height: 1.6;
-            color: #555;
+            color: var(--text-color);
             position: relative;
             z-index: 1;
         }
         
         /* 页脚 */
         footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
             text-align: center;
             padding: 30px 0;
             margin-top: 60px;
@@ -416,13 +477,13 @@
         }
         
         .social-links a {
-            color: white;
+            color: var(--text-color);
             font-size: 1.5rem;
             transition: color 0.3s;
         }
         
         .social-links a:hover {
-            color: var(--dopamine-cyan);
+            color: var(--pastel-pink);
         }
         
         /* 礼炮特效 */
@@ -430,7 +491,7 @@
             position: fixed;
             width: 10px;
             height: 10px;
-            background-color: var(--dopamine-pink);
+            background-color: var(--pastel-pink);
             opacity: 0.8;
             animation: confetti-fall 5s linear forwards;
             z-index: 1000;
@@ -447,7 +508,7 @@
             }
         }
         
-        /* 多巴胺装饰元素 */
+        /* 装饰元素 */
         .floating-element {
             position: fixed;
             border-radius: 50%;
@@ -474,6 +535,11 @@
             .photo-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
+            
+            .characters-container {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -481,12 +547,12 @@
     <!-- 礼炮特效容器 -->
     <div id="confetti-container"></div>
     
-    <!-- 多巴胺装饰元素 -->
-    <div class="floating-element" style="width: 100px; height: 100px; background: var(--dopamine-pink); top: 10%; left: 5%;"></div>
-    <div class="floating-element" style="width: 150px; height: 150px; background: var(--dopamine-yellow); top: 20%; right: 10%; animation-delay: 2s;"></div>
-    <div class="floating-element" style="width: 120px; height: 120px; background: var(--dopamine-green); bottom: 15%; left: 8%; animation-delay: 4s;"></div>
-    <div class="floating-element" style="width: 80px; height: 80px; background: var(--dopamine-blue); top: 40%; left: 15%; animation-delay: 6s;"></div>
-    <div class="floating-element" style="width: 130px; height: 130px; background: var(--dopamine-purple); bottom: 25%; right: 5%; animation-delay: 8s;"></div>
+    <!-- 装饰元素 -->
+    <div class="floating-element" style="width: 100px; height: 100px; background: var(--pastel-pink); top: 10%; left: 5%;"></div>
+    <div class="floating-element" style="width: 150px; height: 150px; background: var(--pastel-yellow); top: 20%; right: 10%; animation-delay: 2s;"></div>
+    <div class="floating-element" style="width: 120px; height: 120px; background: var(--pastel-green); bottom: 15%; left: 8%; animation-delay: 4s;"></div>
+    <div class="floating-element" style="width: 80px; height: 80px; background: var(--pastel-blue); top: 40%; left: 15%; animation-delay: 6s;"></div>
+    <div class="floating-element" style="width: 130px; height: 130px; background: var(--pastel-purple); bottom: 25%; right: 5%; animation-delay: 8s;"></div>
 
     <!-- 头部欢迎区 -->
     <header>
@@ -525,16 +591,7 @@
             
             <div class="photo-grid" id="photoGrid">
                 <!-- 这里会动态显示上传的照片 -->
-                <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmlydGhkYXl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="生日庆祝">
-                    <div class="photo-caption">生日庆祝</div>
-                    <button class="delete-btn" onclick="deletePhoto(this)">×</button>
-                </div>
-                <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFydHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="朋友聚会">
-                    <div class="photo-caption">朋友聚会</div>
-                    <button class="delete-btn" onclick="deletePhoto(this)">×</button>
-                </div>
+                <!-- 移除了生日庆祝和朋友聚会的示例照片 -->
             </div>
         </div>
     </section>
@@ -575,6 +632,14 @@
 
     <!-- 小说角色祝福区 -->
     <section class="characters-section">
+        <div class="mountain-bg">
+            <div class="mountain mountain-1"></div>
+            <div class="mountain mountain-2"></div>
+            <div class="mountain mountain-3"></div>
+            <div class="mountain mountain-4"></div>
+            <div class="wave"></div>
+        </div>
+        
         <div class="container">
             <h2>小说角色的祝福</h2>
             <p class="section-subtitle">来自你喜爱的小说世界的特别问候</p>
@@ -652,11 +717,11 @@
         function createConfetti() {
             const container = document.getElementById('confetti-container');
             const colors = [
-                '#FF6B8B', '#FF9A3D', '#FFD166', 
-                '#06D6A0', '#118AB2', '#9B5DE5', '#00BBF9'
+                '#B8E0F6', '#F9D1D1', '#D4F0C9', 
+                '#FDF5BF', '#D8C3F2'
             ];
             
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 80; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + 'vw';
@@ -677,7 +742,7 @@
         // 页面加载时和定期创建礼炮
         window.addEventListener('load', () => {
             createConfetti();
-            setInterval(createConfetti, 10000);
+            setInterval(createConfetti, 15000);
         });
         
         // 照片上传功能
@@ -732,17 +797,17 @@
         const uploadArea = document.getElementById('uploadArea');
         uploadArea.addEventListener('dragover', function(e) {
             e.preventDefault();
-            this.style.background = 'rgba(0, 187, 249, 0.2)';
+            this.style.background = 'rgba(212, 240, 201, 0.4)';
         });
         
         uploadArea.addEventListener('dragleave', function(e) {
             e.preventDefault();
-            this.style.background = '';
+            this.style.background = 'rgba(212, 240, 201, 0.2)';
         });
         
         uploadArea.addEventListener('drop', function(e) {
             e.preventDefault();
-            this.style.background = '';
+            this.style.background = 'rgba(212, 240, 201, 0.2)';
             
             const files = e.dataTransfer.files;
             if (files.length > 0) {
